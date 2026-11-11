@@ -1,0 +1,54 @@
+"""
+Formative Assessment 1
+Cabanayan
+
+Good day, sir! Please accept my sincerest apologies po for the late submission
+as I was absent po due to sickness. Thank you very much po!
+"""
+
+class Patient:
+    def __init__(self, name, bill_amt):
+        self.__name = name
+        self.__bill_amt = bill_amt
+
+    def get_name(self):
+        return self.__name
+
+    def set_name(self, name):
+        self.__name = name
+
+    def get_bill_amt(self):
+        return self.__bill_amt
+
+    def set_bil_amt(self, bill_amt):
+        self.__bill_amt = bill_amt
+
+    def calculate_bill(self):
+        return self.__bill_amt
+
+class SeniorPatient(Patient):
+    def calculate_bill(self):
+        return self.get_bill_amt() * (1 - 0.20)
+
+class PhilHealth(Patient):
+    def calculate_bill(self):
+        return self.get_bill_amt() * (1 - 0.15)
+
+regular_patient = Patient("Juan Dela Cruz", 15000.00)
+senior_patient = SeniorPatient("Maria Santos", 15000.00)
+philhealth = PhilHealth("Pedro Reyes", 15000.00)
+
+print ("Hospital Billing System")
+print ("-----------------------")
+
+print (f"\nPatient Name: {regular_patient.get_name()}")
+print (f"Original Bill: ₱{regular_patient.get_bill_amt()}")
+print (f"Final Bill: ₱{regular_patient.calculate_bill()}")
+
+print (f"\nPatient Name: {senior_patient.get_name()}")
+print (f"Original Bill: ₱{senior_patient.get_bill_amt()}")
+print (f"Final Bill: ₱{senior_patient.calculate_bill()}")
+
+print (f"\nPatient Name: {philhealth.get_name()}")
+print (f"Original Bill: ₱{philhealth.get_bill_amt()}")
+print (f"Final Bill: ₱{philhealth.calculate_bill()}")
